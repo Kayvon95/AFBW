@@ -1,6 +1,7 @@
 {
   "webPort" : "9001",
   "dbPort" : "3306",
+  "dbHost" : "127.0.0.1",
   "dbDatabase" : "AFBW-Persistency",
   "dbUser" : "root",
   "dbPassword" : ""

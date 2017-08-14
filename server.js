@@ -18,11 +18,17 @@ app.use('/api/planned', require('./routes/projects/planned.routes'));
 app.use('/api/current', require('./routes/projects/current.routes'));
 app.use('/api/finished', require('./routes/projects/finished.routes'));
 
+//BodyParser to process input from post/put requests
+app.use(bodyParser.urlencoded({ 'extended': 'true' }));
+app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
+
+
 // Fallback voor als de opgegeven URL niet werkt
 app.use('*', function(req, res) {
     res.status(400);
     res.json({
-        'error': 'URL not found '+ '\n' + 'The URL you submitted is not tied to any endpoint. Check your URL and try again.'
+        'error': 'URL not found '+ '\n' + 'The URL you submitted is invalid. Check your URL and try again.'
     });
 });
 

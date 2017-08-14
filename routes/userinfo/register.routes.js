@@ -4,14 +4,14 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var pool = require('database/db_connector.js');
+var pool = require('../../database/db_connector.js');
 
 //Test
 router.get('/test', function(req, res){
     res.send('Testresults.');
 });
 
-//Endpoint voor de registratie van nieuwe gebruikers/klanten
+//Endpoint for registry of new users
 router.post('/register', function (req, res){
     var user = {
         user_id: null,
@@ -25,6 +25,7 @@ router.post('/register', function (req, res){
         user.user_id + "', '" +
         user.user_name + "', '" +
         user.email + "', '" +
+        //HH:MM DD-MM-YYYY
         user.create_date+ "', '" +
         user.password + "');";
 

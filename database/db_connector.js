@@ -4,6 +4,7 @@
 var mysql = require('mysql');
 var config = require('../config');
 
+
 var pool = mysql.createPool({
     connectionLimit: 25,
     host : process.env.DB_HOST || config.dbHost,
@@ -18,7 +19,7 @@ var pool = mysql.createPool({
 
 pool.getConnection( function (err, conn){
     if (err) {
-        console.log(err + "It no work.");
+        console.log(err + " " + "Failed to establish connection.");
     } else {
         console.log("Connected to database '" + config.dbDatabase + "' on " + config.dbPort + '.');
         conn.release();
